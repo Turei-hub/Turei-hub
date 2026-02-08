@@ -33,8 +33,12 @@ jobs:
           echo "Changed files:"
           echo "$CHANGED_FILES"
           
-          # Count files
-          FILE_COUNT=$(echo "$CHANGED_FILES" | wc -l)
+          # Count files - handle empty case
+          if [ -z "$CHANGED_FILES" ]; then
+            FILE_COUNT=0
+          else
+            FILE_COUNT=$(echo "$CHANGED_FILES" | wc -l)
+          fi
           
           # Save to output
           echo "files<<EOF" >> $GITHUB_OUTPUT
@@ -53,9 +57,9 @@ jobs:
           echo "Statistics:"
           echo "$STATS"
           
-          # Get diff summary
-          ADDITIONS=$(git diff --numstat $BASE_SHA $HEAD_SHA | awk '{sum+=$1} END {print sum}')
-          DELETIONS=$(git diff --numstat $BASE_SHA $HEAD_SHA | awk '{sum+=$2} END {print sum}')
+          # Get diff summary - default to 0 if empty
+          ADDITIONS=$(git diff --numstat $BASE_SHA $HEAD_SHA | awk '{sum+=$1} END {print sum+0}')
+          DELETIONS=$(git diff --numstat $BASE_SHA $HEAD_SHA | awk '{sum+=$2} END {print sum+0}')
           
           echo "additions=$ADDITIONS" >> $GITHUB_OUTPUT
           echo "deletions=$DELETIONS" >> $GITHUB_OUTPUT
