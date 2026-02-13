@@ -30,6 +30,7 @@ I'm a full-stack developer with a keen interest in web development, automation, 
 
 ## 📈 GitHub Stats
 
+<!-- GitHub stats widget powered by github-readme-stats (may be rate-limited during high traffic) -->
 ![Turei's GitHub stats](https://github-readme-stats.vercel.app/api?username=Turei-hub&show_icons=true&theme=radical)
 
 ## 🛠️ Recent Projects
@@ -47,7 +48,8 @@ See [`.github/workflows/README.md`](.github/workflows/README.md) for more detail
 
 Feel free to connect with me or check out my work:
 - 🌐 GitHub: [@Turei-hub](https://github.com/Turei-hub)
-- 💼 Portfolio: Coming soon!
+<!-- TODO: Add portfolio link when available -->
+- 💼 Portfolio: In development
 
 ## ⚡ Fun Facts
 
